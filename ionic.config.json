@@ -1,0 +1,7 @@
+{
+  "name": "finepe",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
