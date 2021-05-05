@@ -1,0 +1,70 @@
+.login-header {
+  background: var(--ion-color-margarete);
+  img {
+    display: block;
+    width: 230px;
+    margin: 10px auto 0 auto;
+    text-align: center;
+  }
+}
+
+.login-header:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-top-color: var(--ion-color-margarete);
+  border-bottom: 0;
+  margin-left: -15px;
+  margin-bottom: -15px;
+}
+
+[heading-column-lr] {
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+
+  h1 {
+    font-family: "TitilliumWeb-Bold" !important;
+    font-size: 24px;
+    color: var(--ion-color-coolors-blue);
+  }
+
+  h2 {
+    font-size: 15px;
+    margin-left: auto;
+  }
+}
+
+ion-label {
+  color: var(--ion-color-coolors-blue);
+  opacity: .8;
+  font-size: 13px;
+  display: block;
+}
+
+.forget-pass {
+  text-align: right;
+  padding: 10px;
+}
+
+form .center {
+  margin: 20px 0 0 0;
+}
+
+.error-message {
+  color: var(--ion-color-danger-shade);
+}
+
+ion-item {
+  position: relative;
+}
+
+.error {
+  position: absolute;
+  right: 0;
+  top: 10px;
+}

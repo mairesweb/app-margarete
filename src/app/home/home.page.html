@@ -1,0 +1,46 @@
+<ion-tabs>
+
+  <ion-tab-bar slot="bottom" color="dark">
+    <ion-tab-button tab="resume">
+      <ion-icon name="newspaper"></ion-icon>
+      <ion-label>Resumo</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="extract">
+      <ion-icon name="archive"></ion-icon>
+      <ion-label>Extrato</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button class="tab-center">
+
+    </ion-tab-button>
+
+    <ion-tab-button tab="planning">
+      <ion-icon name="rocket"></ion-icon>
+      <ion-label>Metas</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="investment">
+      <ion-icon name="trending-up"></ion-icon>
+      <ion-label>Futuro</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button color="margarete">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button (click)="goPage('home/transaction')" data-desc="Receita/Despesa">
+        <ion-icon name="wallet"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="goPage('home/goal')" data-desc="Meta">
+        <ion-icon name="trophy"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="goPage('home/investment')" data-desc="Investimento">
+        <ion-icon name="swap-horizontal"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+</ion-tabs>

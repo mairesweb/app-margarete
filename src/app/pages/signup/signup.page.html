@@ -1,0 +1,68 @@
+<ion-header no-border>
+  <div class="login-header ion-padding">
+    <img src="assets/images/margarete-green.png" alt="Margarete - Finanças e Investimentos" />
+  </div>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <div heading-column-lr>
+        <h1>Criar Conta</h1>
+        <h2 routerLink='/login'>Entrar</h2>
+      </div>
+      <form [formGroup]="signupForm" (ngSubmit)="submit()">
+        <ion-list>
+          <ion-item>
+            <div class="error" *ngFor="let error of errorMessages.name">
+              <ng-container *ngIf="name.hasError(error.type) && (name.dirty || name.touched)">
+                <small class="error-message">{{error.message}}</small>
+              </ng-container>
+            </div>
+            <ion-label position="floating">Nome Completo</ion-label>
+            <ion-input inputmode="text" formControlName="name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <div class="error" *ngFor="let error of errorMessages.tel">
+              <ng-container *ngIf="tel.hasError(error.type) && (tel.dirty || tel.touched)">
+                <small class="error-message">{{error.message}}</small>
+              </ng-container>
+            </div>
+            <ion-label position="floating">Telefone</ion-label>
+            <ion-input inputmode="tel" formControlName="tel"></ion-input>
+          </ion-item>
+          <ion-item>
+            <div class="error" *ngFor="let error of errorMessages.email">
+              <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+                <small class="error-message">{{error.message}}</small>
+              </ng-container>
+            </div>
+            <ion-label position="floating">E-mail</ion-label>
+            <ion-input inputmode="email" formControlName="email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <div class="error" *ngFor="let error of errorMessages.username">
+              <ng-container *ngIf="username.hasError(error.type) && (username.dirty || username.touched)">
+                <small class="error-message">{{error.message}}</small>
+              </ng-container>
+            </div>
+            <ion-label position="floating">Usuário</ion-label>
+            <ion-input inputmode="text" formControlName="username"></ion-input>
+          </ion-item>
+          <ion-item>
+            <div class="error" *ngFor="let error of errorMessages.password">
+              <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+                <small class="error-message">{{error.message}}</small>
+              </ng-container>
+            </div>
+            <ion-label position="floating">Senha</ion-label>
+            <ion-input inputmode="text" formControlName="password" type="password"></ion-input>
+          </ion-item>
+        </ion-list>
+        <ion-button expand="block" share="round" type="submit" color="margarete">Cadastrar</ion-button>
+        <div class="center">
+          Você tem uma conta? <a routerLink='/login'>Entrar</a>
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

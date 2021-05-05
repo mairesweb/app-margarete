@@ -1,0 +1,26 @@
+form .center {
+  margin: 20px 0 0 0;
+}
+
+h2 {
+  text-align: center;
+  font-weight: bold;
+}
+
+.error-message {
+  color: var(--ion-color-danger-shade);
+}
+
+ion-item {
+  position: relative;
+}
+
+.error {
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+
+ion-segment {
+  margin-top: 10px;
+}

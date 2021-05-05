@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="{{ transaction ? 'home/extract' : 'home/resume' }}"></ion-back-button>
+    </ion-buttons>
+    <ion-title mode=ios>
+      <img src="assets/images/margarete-only-name-green.png" alt="Margarete - Finanças e Investimentos" />
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <h2>{{ transaction ? 'Editar' : 'Nova' }} Transação</h2>
+      <form [formGroup]="transactionForm" (ngSubmit)="submit()">
+        <ion-list>
+          <ion-segment (ionChange)="categoryChanged($event)" mode="ios" value="{{ transaction ? transaction.sub_categories.category_id : '' }}" formControlName="type" color="margarete">
+            <ion-segment-button value="1">
+              <ion-label>Despesa</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="0">
+              <ion-label>Receita</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+          <ion-item>
+            <div class="error" *ngFor="let error of errorMessages.name">
+              <ng-container *ngIf="name.hasError(error.type) && (name.dirty || name.touched)">
+                <small class="error-message">{{error.message}}</small>
+              </ng-container>
+            </div>
+            <ion-label position="floating">Nome</ion-label>
+            <ion-input inputmode="text" formControlName="name" value="{{ transaction ? transaction.name : '' }}"></ion-input>
+          </ion-item>
+          <ion-item>
+            <div class="error" *ngFor="let error of errorMessages.value">
+              <ng-container *ngIf="value.hasError(error.type) && (value.dirty || value.touched)">
+                <small class="error-message">{{error.message}}</small>
+              </ng-container>
+            </div>
+            <ion-label position="floating">Valor</ion-label>
+            <ion-input inputmode="decimal" formControlName="value" value="{{ transaction ? transaction.value : '' }}"></ion-input>
+          </ion-item>
+          <ion-item>
+            <div class="error" *ngFor="let error of errorMessages.date">
+              <ng-container *ngIf="date.hasError(error.type) && (date.dirty || date.touched)">
+                <small class="error-message">{{error.message}}</small>
+              </ng-container>
+            </div>
+            <ion-label position="floating">Data</ion-label>
+            <ion-datetime cancelText="Cancelar" doneText="Ok" cancelText="Cancelar" display-format="DD/MM/YYYY" formControlName="date" value="{{ transaction ? transaction.date : '' }}"></ion-datetime>
+          </ion-item>
+          <ion-item>
+            <div class="error" *ngFor="let error of errorMessages.category">
+              <ng-container *ngIf="category.hasError(error.type) && (category.dirty || category.touched)">
+                <small class="error-message">{{error.message}}</small>
+              </ng-container>
+            </div>
+            <ion-label position="floating">Categoria</ion-label>
+            <ion-select [(ngModel)]="empty" value="{{ transaction ? transaction.category : '' }}" formControlName="category" interface="action-sheet" cancelText="Cancelar">
+              <ion-select-option *ngFor="let category of categories" value="{{category.id}}">{{category.name}} ({{category.category.name}})</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <!--ion-item>
+            <ion-label position="floating">Conta</ion-label>
+            <ion-select formControlName="account" value="1" interface="action-sheet">
+              <div class="error" *ngFor="let error of errorMessages.account">
+                <ng-container *ngIf="account.hasError(error.type) && (account.dirty || account.touched)">
+                  <small class="error-message">{{error.message}}</small>
+                </ng-container>
+              </div>
+              <ion-select-option value="1">Única</ion-select-option>
+            </ion-select>
+          </!--ion-item-->
+        </ion-list>
+        <ion-button color="success" [disabled]="!transactionForm.valid" type="submit" expand="block">
+          Enviar 
+          <ion-icon slot="end" name="create">
+          </ion-icon>
+        </ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

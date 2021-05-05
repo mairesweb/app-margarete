@@ -24,3 +24,87 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+@font-face {
+  font-family: 'TitilliumWeb-Black';
+  src: url('assets/fonts/Titillium_Web/TitilliumWeb-Black.ttf');
+}
+@font-face {
+  font-family: 'TitilliumWeb-Bold';
+  src: url('assets/fonts/Titillium_Web/TitilliumWeb-Bold.ttf');
+}
+@font-face {
+  font-family: 'TitilliumWeb-BoldItalic';
+  src: url('assets/fonts/Titillium_Web/TitilliumWeb-BoldItalic.ttf');
+}
+@font-face {
+  font-family: 'TitilliumWeb-ExtraLight';
+  src: url('assets/fonts/Titillium_Web/TitilliumWeb-ExtraLight.ttf');
+}
+@font-face {
+  font-family: 'TitilliumWeb-ExtraLightItalic';
+  src: url('assets/fonts/Titillium_Web/TitilliumWeb-ExtraLightItalic.ttf');
+}
+@font-face {
+  font-family: 'TitilliumWeb-Italic';
+  src: url('assets/fonts/Titillium_Web/TitilliumWeb-Italic.ttf');
+}
+@font-face {
+  font-family: 'TitilliumWeb-Light';
+  src: url('assets/fonts/Titillium_Web/TitilliumWeb-Light.ttf');
+}
+@font-face {
+  font-family: 'TitilliumWeb-LightItalic';
+  src: url('assets/fonts/Titillium_Web/TitilliumWeb-LightItalic.ttf');
+}
+@font-face {
+  font-family: 'TitilliumWeb-Regular';
+  src: url('assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf');
+}
+@font-face {
+  font-family: 'TitilliumWeb-SemiBold';
+  src: url('assets/fonts/Titillium_Web/TitilliumWeb-SemiBold.ttf');
+}
+@font-face {
+  font-family: 'TitilliumWeb-SemiBoldItalic';
+  src: url('assets/fonts/Titillium_Web/TitilliumWeb-SemiBoldItalic.ttf');
+}
+
+* {
+  font-size: 1em;
+}
+
+form ion-item {
+  --min-height: 45px;
+}
+
+.center {
+  text-align: center;
+}
+
+a {
+  color: var(--ion-color-coolors);
+  text-decoration: none;
+}
+
+ion-item {
+  --padding-start: 0;
+}
+
+ion-toolbar {
+  --background: var(--ion-color-margarete) !important;
+
+  ion-icon {
+    font-size: 24px;
+    color: var(--ion-color-margarete-contrast);
+  }
+
+  ion-back-button {
+    --color: var(--ion-color-margarete-contrast);
+  }
+
+  img {
+    width: 120px;
+    margin-top: 7px;
+  }
+}

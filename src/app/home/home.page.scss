@@ -1,0 +1,33 @@
+ion-label {
+  font-size: 12px;
+}
+
+.tab-center {
+  width: 50% !important;
+}
+
+ion-fab {
+  bottom: 30px;
+  ion-fab-button[data-desc] {
+    position: relative;
+  }
+
+  ion-icon[name="add"] {
+    font-size: 1.6em;
+  }
+  
+  ion-fab-button[data-desc]::after {
+    position: absolute;
+    content: attr(data-desc);
+    z-index: 1;
+    left: 45px;
+    bottom: 6px;
+    background-color: #f4f5f8;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 13px;
+    opacity: .9;
+    color: var(--ion-color-dark);
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.14), 0 1px 18px 0 rgba(0,0,0,0.12);
+  }
+}

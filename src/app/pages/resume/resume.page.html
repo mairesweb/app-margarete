@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon name="person-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title mode=ios>
+      <img src="assets/images/margarete-only-name-green.png" alt="Margarete - Finanças e Investimentos" />
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-card>
+    <ion-card-content>
+      <ion-grid class="grid-resume">
+        <ion-row>
+          <ion-col>Receitas</ion-col>
+          <ion-col>{{ totals.receitas | currency:'BRL' }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Despesas</ion-col>
+          <ion-col>{{ totals.despesas | currency:'BRL' }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Saldo</ion-col>
+          <ion-col>{{ totals.total | currency:'BRL' }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Investimentos</ion-col>
+          <ion-col>R$ 0,00</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col><h3>Metona</h3></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col><ion-progress-bar color="medium" value="0.25"></ion-progress-bar></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col><h3>Meta</h3></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col><ion-progress-bar color="margarete" value="0.45"></ion-progress-bar></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col><h3>Metinha</h3></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col><ion-progress-bar color="primary" value="0.85"></ion-progress-bar></ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <div style="display: block">
+        <canvas baseChart
+          [data]="doughnutChartData"
+          [labels]="doughnutChartLabels"
+          [chartType]="doughnutChartType"
+              [options]="doughnutChartOptions"
+              [plugins]="doughnutChartPlugins"
+              [colors]="doughnutChartColors">
+            </canvas>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-select (ionChange)="monthChange($event)" interface="action-sheet" value="{{ month }}">
+        <ion-select-option *ngFor="let month of monthsOfUser" value="{{ month.ref }}">{{ month.month }}</ion-select-option>
+      </ion-select>
+    </ion-buttons>
+    <ion-title mode=ios>
+      <img src="assets/images/margarete-only-name-green.png" alt="Margarete - Finanças e Investimentos" />
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <ion-item-sliding *ngFor="let transaction of transactions">
+      <ion-item>
+        <ion-label>
+          <h2>{{ transaction.name }}</h2>
+          <p>{{ transaction.sub_categories.name }}</p>
+        </ion-label>
+        <ion-note slot="end" [ngClass]="{'receita': !transaction.type, 'despesa': transaction.type}">{{ transaction.value | currency:'BRL' }}</ion-note>
+      </ion-item>
+      <ion-item-options side="start" (click)="changeTransaction(transaction)">
+        <ion-item-option color="warning">Alterar</ion-item-option>
+      </ion-item-options>
+      <ion-item-options side="end" (click)="deleteTransaction(transaction.id)">
+        <ion-item-option color="danger">Apagar</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="light">
+    <ion-label slot="start">Total</ion-label>
+    <ion-note slot="end" [ngClass]="{'receita': total > 0, 'despesa': total < 0}">{{ total | currency:'BRL' }}</ion-note>
+  </ion-toolbar>
+</ion-footer>

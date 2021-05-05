@@ -1,0 +1,40 @@
+ion-card-header {
+  border-bottom: 1px solid var(--ion-color-light-shade);
+
+  .info {
+    ion-col:last-child {
+      text-align: right;
+    }
+  }
+
+  .strategies {
+    ion-col:last-child {
+      text-align: right;
+    }
+
+    ion-icon {
+      font-size: 16px;
+      margin-bottom: -3px;
+    }
+    font-size: 14px;
+  }
+
+  ion-label {
+    text-align: center;
+
+    h2 {
+      font-size: 48px;
+      margin: 0;
+    }
+  }
+}
+
+ion-list {
+  ion-label {
+    h2 {
+      ion-icon {
+        margin-bottom: -3px;
+      }
+    }
+  }
+}

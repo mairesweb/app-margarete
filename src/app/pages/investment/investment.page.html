@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title mode=ios>
+      <img src="assets/images/margarete-only-name-green.png" alt="Margarete - Finanças e Investimentos" />
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="wallet"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Pesquisar ativo" (ionChange)="filterPapers($event)" clearInput></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list>
+    <ion-item *ngFor="let paper of papers" button (click)="viewPaper(paper)">
+      <ion-label>
+        <h2>{{ paper.code }}</h2>
+        <p>{{ paper.name }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

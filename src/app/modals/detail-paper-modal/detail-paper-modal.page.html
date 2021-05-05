@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home/investment" (click)="dismiss()"></ion-back-button>
+    </ion-buttons>
+    <ion-title mode=ios>
+      <img src="assets/images/margarete-only-name-green.png" alt="Margarete - Finanças e Investimentos" />
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-grid class="info">
+        <ion-row>
+          <ion-col size="8">{{ paper.name }}</ion-col>
+          <ion-col>{{ paper.code }}</ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-label>
+        <h2>{{ paper.price | currency:'BRL' }}</h2>
+        <p>Cotação</p>
+      </ion-label>
+      <ion-grid class="strategies">
+        <ion-row>
+          <ion-col (click)="showInfo('Valor da ação baseado na estratégia de Value Investing do livro de Décio Bazin.')">Bazin: {{ paper.bazin | currency:'BRL' }} <ion-icon name="information-circle-outline"></ion-icon></ion-col>
+          <ion-col (click)="showInfo('Valor da ação baseado na estratégia de Value Investing do livro de Benjamin Graham.')">Graham: {{ paper.graham | currency:'BRL' }} <ion-icon name="information-circle-outline"></ion-icon></ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list lines="none">
+        <ion-item>
+          <ion-label (click)="showInfo('Porcentagem dos proventos pagos ao ano em relação ao preço da ação, ou seja, rendimento anual gerado para o acionista.')">
+            <h2>Dividend Yield <ion-icon name="information-circle-outline"></ion-icon></h2>
+          </ion-label>
+          <ion-note slot="end">{{ paper.dy }}%</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label (click)="showInfo('Valor dos proventos pagos por ação nos últimos 12 meses.')">
+            <h2>Dividendos pagos anuais <ion-icon name="information-circle-outline"></ion-icon></h2>
+          </ion-label>
+          <ion-note slot="end">{{ paper.dpa | currency:'BRL' }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label (click)="showInfo('Preço da ação dividido pelo lucro por ação. Usado para verificar quantos anos levaria para recuperar o capital aplicado na compra de uma ação.')">
+            <h2>P/L <ion-icon name="information-circle-outline"></ion-icon></h2>
+          </ion-label>
+          <ion-note slot="end">{{ paper.pl }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label (click)="showInfo('Lucro por ação. Indica se a empresa é ou não lucrativa.')">
+            <h2>LPA <ion-icon name="information-circle-outline"></ion-icon></h2>
+          </ion-label>
+          <ion-note slot="end">{{ paper.lpa }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label (click)="showInfo('Valor patrimonial por ação. Indica o quanto o mercado está disposto a pagar sobre o patrimônio da empresa.')">
+            <h2>VPA <ion-icon name="information-circle-outline"></ion-icon></h2>
+          </ion-label>
+          <ion-note slot="end">{{ paper.vpa }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label (click)="showInfo('Porcentagem de lucro líquido em relação a receita líquida.')">
+            <h2>Margem Líquida <ion-icon name="information-circle-outline"></ion-icon></h2>
+          </ion-label>
+          <ion-note slot="end">{{ paper.margem_liquida }}%</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label (click)="showInfo('Retorno sobre o Patrimônio Líquido. Indica a capacidade da empresa agregar valor através dos seus recursos + capital dos acionistas.')">
+            <h2>ROE <ion-icon name="information-circle-outline"></ion-icon></h2>
+          </ion-label>
+          <ion-note slot="end">{{ paper.roe }}%</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label (click)="showInfo('Dívida líquida em relação ao patrimônio líquido. Indica quanto de dívida uma empresa está usando para financiar os seus ativos em relação ao patrimônio dos acionistas.')">
+            <h2>Dívida Líquida / Pat. Líquido <ion-icon name="information-circle-outline"></ion-icon></h2>
+          </ion-label>
+          <ion-note slot="end">{{ paper.divida_liquida_patrimonio_liquido }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label (click)="showInfo('Dívida líquida em relação ao EBITDA (Lucros antes de juros, impostos, depreciação e amortização). Indica o grau de endividamento da empresa.')">
+            <h2>Dívida Líquida / EBITDA <ion-icon name="information-circle-outline"></ion-icon></h2>
+          </ion-label>
+          <ion-note slot="end">{{ paper.divida_liquida_ebitda }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label (click)="showInfo('Valor de mercado da empresa, considerando o preço da ação multiplicado pelo número total de ações.')">
+            <h2>Valor de Mercado <ion-icon name="information-circle-outline"></ion-icon></h2>
+          </ion-label>
+          <ion-note slot="end">{{ paper.valor_mercado | currency:'BRL' }}</ion-note>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

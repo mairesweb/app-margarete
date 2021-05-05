@@ -1,0 +1,45 @@
+<ion-header no-border>
+  <div class="login-header ion-padding">
+    <img src="assets/images/margarete-green.png" alt="Margarete - Finanças e Investimentos" />
+  </div>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <div heading-column-lr>
+        <h1>Bem-vindo</h1>
+        <h2 routerLink='/signup'>Criar uma conta</h2>
+      </div>
+      <form [formGroup]="loginForm" (ngSubmit)="submit()">
+        <ion-list>
+          <ion-item>
+            <div class="error" *ngFor="let error of errorMessages.username">
+              <ng-container *ngIf="username.hasError(error.type) && (username.dirty || username.touched)">
+                <small class="error-message">{{error.message}}</small>
+              </ng-container>
+            </div>
+            <ion-label position="floating">Usuário</ion-label>
+            <ion-input inputmode="text" [(ngModel)]="postData.username" formControlName="username"></ion-input>
+          </ion-item>
+          <ion-item>
+            <div class="error" *ngFor="let error of errorMessages.password">
+              <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+                <small class="error-message">{{error.message}}</small>
+              </ng-container>
+            </div>
+            <ion-label position="floating">Senha</ion-label>
+            <ion-input inputmode="text" [(ngModel)]="postData.password" formControlName="password" type="password"></ion-input>
+          </ion-item>
+          <ion-label class="forget-pass">Esqueci a senha</ion-label>
+        </ion-list>
+        <ion-button expand="block" [disabled]="!loginForm.valid" type="submit" share="round" color="margarete">
+          Entrar
+          <ion-icon slot="end" name="log-in"></ion-icon>
+        </ion-button>
+        <div class="center">
+          <a color="margarete" routerLink='/signup'>Criar uma conta</a>
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
